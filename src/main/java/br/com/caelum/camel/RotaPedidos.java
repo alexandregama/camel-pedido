@@ -14,6 +14,7 @@ public class RotaPedidos {
 			@Override
 			public void configure() {
 				from("file:pedidos?delay=5s").
+					log("${id} - ${body}").
 				to("file:saida");
 			}
 		});
